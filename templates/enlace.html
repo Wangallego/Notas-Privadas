@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Enlace de la nota{% endblock %}
+
+{% block content %}
+  <h2>Enlace de la nota</h2>
+  <p>Aquí está el enlace de tu nota:</p>
+  <p>Código de la nota: {{ codigo }}</p>
+  <p>Fecha y hora de creación: {{ fecha_creacion }}</p>
+  <a href="{{ url_nota }}">http://localhost:5000{{ url_nota }}</a>
+{% endblock %}
+

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Leer Nota{% endblock %}
+
+{% block content %}
+  <h2>Nota guardada</h2>
+  <p>Aquí está el contenido de la nota:</p>
+  <pre>{{ nota }}</pre>
+  <p>Esta nota solo puede ser leída una vez. Después de cerrar esta página, no podrás acceder a ella nuevamente.</p>
+ 
+
+{% endblock %}
