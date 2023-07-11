@@ -3,10 +3,26 @@
 {% block title %}Enlace de la nota{% endblock %}
 
 {% block content %}
-  <h2>Enlace de la nota</h2>
-  <p>Aquí está el enlace de tu nota:</p>
-  <p>Código de la nota: {{ codigo }}</p>
-  <p>Fecha y hora de creación: {{ fecha_creacion }}</p>
-  <a href="{{ url_nota }}">http://localhost:5000{{ url_nota }}</a>
-{% endblock %}
+  
+<div class="d-flex justify-content-center mt-2">
+  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{BASE_URL}}/{{qr_image_path}}" class="img-fluid rounded-start" alt="CodigoQR">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body text-center">
+          <h5 class="card-title">Enlace de la nota</h5>
+          <p class="card-text"><a href="{{ url_nota }}">http://localhost:5000{{ url_nota }}</a></p>
+          <p class="card-text"><small class="text-body-secondary">Creada:{{ fecha_creacion }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  {% endblock %}
 

@@ -26,14 +26,15 @@ def save_note(codigo, texto):
 def read_note(codigo):
     con = sqlite3.connect(DB_NAME)
     cur = con.cursor()
-    result = cur.execute("""SELECT codigo,texto FROM notas WHERE codigo=?""", (codigo,))#hay que poner la coma porque si no la pones piensa que es un valor entre parentesis, con la coma piensa que es una tupla
+    result = cur.execute("SELECT codigo, texto FROM notas WHERE codigo=?", (codigo,))
     result = cur.fetchone()
     con.close()
     if result:
-        codigo,texto = result
-        return codigo,texto
+        _, texto = result  # Extraer el texto de la tupla
+        return texto
     else:
         return None
+
 
 def delete_note(codigo):
     con = sqlite3.connect(DB_NAME)
