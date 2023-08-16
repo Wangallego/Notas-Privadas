@@ -1,26 +1,50 @@
-"Priv Notes: Tu espacio seguro para notas efímeras y privadas"
+Aplicación MVC de Notas Privadas
+Esta es una aplicación web basada en el framework Flask que te permite crear y gestionar notas privadas utilizando códigos QR. Las notas pueden ser creadas, leídas y eliminadas, y también puedes acceder a un historial de notas recientes.
 
-Introducción:
-¡Bienvenido a Priv Notes, el lugar donde puedes expresarte libremente sin preocuparte por la privacidad de tus pensamientos y notas personales! En Priv Notes, entendemos la importancia de tener un espacio seguro para tus ideas fugaces, confesiones y reflexiones íntimas. Nuestra plataforma te brinda la tranquilidad de que tus notas solo se pueden ver una vez y se eliminan automáticamente, sin dejar rastro.
+Instalación
+Clona este repositorio en tu máquina local:
+ -git clone https://github.com/tuusuario/tuproyecto.git
+Accede al directorio del proyecto:
+ -cd tuproyecto
 
-Características destacadas:
+Uso:
+    Asegúrate de que tienes una base de datos SQLite3 configurada y accesible. Puedes modificar la conexión a la base de datos en el archivo modelo.py si es necesario.
 
-Privacidad garantizada: En Priv Notes, nos tomamos en serio tu privacidad. Cada vez que creas una nota, generamos un enlace exclusivo que solo se puede abrir una vez. Después de ser abierto, el enlace se borra permanentemente, asegurando que tus pensamientos sean completamente confidenciales.
+Ejecuta el siguiente comando para crear la tabla necesaria en la base de datos:
 
-Diseño intuitivo y minimalista: Hemos creado una interfaz simple y fácil de usar para que puedas centrarte en tus notas sin distracciones. Con un área de escritura amplia y un botón claro para generar tus notas, no tendrás problemas para comenzar a escribir de inmediato.
+python app.py
 
-Acceso desde cualquier dispositivo: Priv Notes te permite acceder a tus notas desde cualquier dispositivo, ya sea tu teléfono, tableta o computadora. Puedes escribir tus pensamientos efímeros estés donde estés, sin preocuparte por la seguridad de tu contenido.
+Inicia la aplicación Flask:
+python app.py
 
-Sin complicaciones ni registros: No necesitas registrarte ni proporcionar información personal para utilizar Priv Notes. Queremos que te sientas libre y anónimo al expresarte, sin dejar huellas digitales.
+Abre tu navegador web y accede a la URL http://localhost:5000/ para comenzar a utilizar la aplicación.
 
-Cómo funciona:
+Rutas:
+GET /: Página principal para crear una nueva nota.
+POST /: Crea una nueva nota y muestra un código QR único para acceder a la nota.
+GET /enlace/<codigo>: Muestra el enlace y el código QR para acceder a una nota específica.
+GET /leernota/<codigo>: Muestra el contenido de una nota y su fecha de creación.
+POST /historial: Página para ingresar un código de nota y acceder al historial.
+GET /ver_historial/<codigo>: Muestra el historial de notas recientes correspondientes al código.
 
-Escribe tus notas: Simplemente ingresa a nuestra página principal y escribe tus pensamientos en el área de texto designada. Deja que fluyan tus palabras sin preocuparte, sabiendo que tus notas son confidenciales y efímeras.
+Características:
 
-Genera tu enlace exclusivo: Una vez que hayas terminado de escribir tu nota, haz clic en el botón de generación y obtendrás un enlace único para esa nota específica. Copia el enlace y compártelo solo con las personas que deseas que lean tu mensaje.
+    Crear Nota:
+        Puedes crear una nueva nota privada completando el formulario en la página principal. Simplemente ingresa el texto de la nota y haz clic en el botón "Crear Nota". Se generará un código único para la nota y se generará un código QR correspondiente que puedes escanear.
 
-Visualización única: Cuando alguien acceda al enlace que les proporciones, podrán ver tu nota una sola vez. Después de eso, la nota desaparecerá sin dejar rastro, protegiendo así tu privacidad y evitando que se pueda acceder a ella nuevamente.
+    Leer Nota
+        Usando el código QR generado para una nota o ingresando manualmente el código en la página de historial, puedes acceder al contenido de una nota privada. La nota se mostrará junto con su fecha de creación.
 
-Liberación y tranquilidad: Una vez que hayas compartido tu nota y haya sido vista, siéntete libre de dejarla ir. Sabiendo que tus palabras han sido efímeras, puedes disfrutar de la tranquilidad de expresarte sin preocupaciones.
+    Historial de Notas
+        Puedes acceder al historial de notas recientes visitando la página de historial. Aquí puedes ingresar el código de una nota para ver su contenido y fecha de creación. Esto te permite acceder rápidamente a las notas anteriores.
 
-Únete a Priv Notes y experimenta la libertad de compartir tus pensamientos efímeros en un entorno seguro y privado. ¡Crea tu primera nota ahora mismo y deja que tus palabras vuelen sin miedo a ser descubiertas!"
+    Contribuciones
+        Si encuentras algún problema o tienes sugerencias para mejorar esta aplicación, no dudes en abrir un problema en GitHub o enviar una solicitud de extracción.
+
+    Créditos
+        Esta aplicación fue desarrollada por Juan Basoa.
+
+    Licencia
+        Este proyecto está bajo la licencia MIT. Puedes consultar el archivo LICENSE para más detalles.
+
+¡Disfruta gestionando tus notas privadas de manera sencilla y segura con esta aplicación MVC de Flask!

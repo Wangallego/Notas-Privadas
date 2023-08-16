@@ -4,22 +4,27 @@
 
 {% block content %}
   
-<div class="d-flex justify-content-center mt-2">
-  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="card mb-3" style="max-width: 540px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); margin-top: -40px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{BASE_URL}}/{{qr_image_path}}" class="img-fluid rounded-start" alt="CodigoQR">
+        <img src="{{ BASE_URL }}/{{ qr_image_path }}" class="img-fluid rounded-start" alt="CodigoQR">
       </div>
       <div class="col-md-8">
-        <div class="card-body text-center">
+        <div class="card-body text-center" style="padding-bottom: 20px;">
           <h5 class="card-title">Enlace de la nota</h5>
           <p class="card-text"><a href="{{ url_nota }}">http://localhost:5000{{ url_nota }}</a></p>
-          <p class="card-text"><small class="text-body-secondary">Creada:{{ fecha_creacion }}</small></p>
+          <p class="card-text">
+            <small class="text-body-secondary">
+              Código: {{ codigo }}
+            </small>
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
 

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Historial - PrivNote{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-70 min-vw-60">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title text-center">Historial de Notas</h1>
+        <form method="POST" action="{{ url_for('historial') }}">
+          <div class="mb-3">
+            <label for="codigo" class="form-label">Ingresa el código:</label>
+            <input type="text" class="form-control" id="codigo" name="codigo" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Ver Historial</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

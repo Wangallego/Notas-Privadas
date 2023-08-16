@@ -4,48 +4,67 @@
 
 {% block content %}
 
-<div class="d-md-flex flex-md-column justify-content-center col-md-6 mx-auto">
-  <h2 class="mt-4">Crear una nueva nota</h2>
-  <form action="{{ url_for('crearnota') }}" method="POST" id="formularioNota">
-    <div class="form-floating position-relative">
-      <textarea class="form-control custom-textarea" placeholder="Leave a comment here" id="floatingTextarea2"
-        style="height: 250px" name="texto" rows="10"></textarea>
-      <button class="btn btn-primary position-absolute bottom-0 end-0 left-0 translate-middle rounded-pill" type="submit">
-        <div class="d-md-flex">
-        <img src="{{ url_for('static', filename='send-icon.png') }}" alt="Enviar" style="max-width: 2rem;">
-      </button>
-      
-      
-    </div>
-    </div>
-  </form>
+<div class="d-flex justify-content-center align-items-center " style="min-height: 70vh;">
+  <div class="d-md-flex flex-md-column justify-content-center col-md-6 mx-auto shadow-lg rounded " style="background-color: rgba(0, 0, 255, 0.192);">
+    <h2 class="mt-2 mb-2 text-center">Crear una nueva nota</h2>
+    <form action="{{ url_for('crearnota') }}" method="POST" id="formularioNota">
+      <div class="form-floating position-relative">
+        <textarea class="form-control custom-textarea" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 250px" name="texto" rows="10"></textarea>
+        <button class="btn btn-primary position-absolute bottom-0 end-0 left-0 translate-middle rounded-pill" type="submit" id="button">
+          <div class="d-md-flex">
+            <img src="{{ url_for('static', filename='send-icon.png') }}" alt="Enviar" style="max-width: 2rem;">
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
 <div id="indicadorConfirmacion" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
   <img src="{{ url_for('static', filename='loading.svg') }}" alt="Cargando">
 </div>
 
+  
+<script>
+  //Comprobar que el textarea no se envia vacion
+  const textarea = document.querySelector('#floatingTextarea2'),
+  button = document.querySelector('#button'),
+  form = document.querySelector('#formularioNota')
+  
+  button.addEventListener('click', () =>{
+    if(textarea.value === ''){
+    
+    alert('Debes escribir algo.')
+    form.preventDefault();
+  }
+  })
+  
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
  
-  $(document).ready(function() {
-    $('#formularioNota').submit(function(e) {
-      e.preventDefault(); // Evita el comportamiento predeterminado del formulario
-      
-      // Muestra el indicador de confirmación
-      $('#botonGuardar').prop('disabled', true);
-      $('#indicadorConfirmacion').show();
-      
-      // Realiza una pequeña pausa antes de enviar el formulario
-      setTimeout(function() {
-        $('#formularioNota').unbind('submit').submit(); // Envía el formulario
-      }, 1000); // Espera 1 segundo (puedes ajustar este valor según tus necesidades)
-    });
+ $(document).ready(function() {
+  $('#formularioNota').submit(function(e) {
+    e.preventDefault(); // Evita el comportamiento predeterminado del formulario
+    
+    // Comprueba si hay texto en el textarea
+    var texto = $('#floatingTextarea2').val();
+    if (!texto) {
+      return; // No ejecutar nada si no hay texto
+    }
+    
+    // Muestra el indicador de confirmación
+    $('#botonGuardar').prop('disabled', true);
+    $('#indicadorConfirmacion').show();
+    
+    // Realiza una pequeña pausa antes de enviar el formulario
+    setTimeout(function() {
+      $('#formularioNota').unbind('submit').submit(); // Envía el formulario
+    }, 500); // Espera 0.5 segundos (puedes ajustar este valor según tus necesidades)
   });
+});
+
 </script>
-
-
-
-
 {% endblock %}
 
 

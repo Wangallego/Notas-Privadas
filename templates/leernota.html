@@ -4,10 +4,22 @@
 
 {% block content %}
   
-  <h2>Nota guardada</h2>
-  <p>Aquí está el contenido de la nota:</p>
-  <pre>{{ nota }}</pre>
-  <p>Esta nota solo puede ser leída una vez. Después de cerrar esta página, no podrás acceder a ella nuevamente.</p>
- 
+<div class="container mt-5 ">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card shadow-lg">
+        <div class="card-header text-center shadow">
+          <h2>Nota guardada</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Aquí está el contenido de la nota:</p>
+          <pre class="card-text bg-light p-3 border rounded shadow-lg">{{ nota.texto }}</pre>
+          <p class="card-text">Creada: {{ nota.fecha_creacion }}</p>
+          <small class="card-text " style="color: rgba(0, 0, 0, 0.623);" >Esta nota solo puede ser leída una vez. Después de cerrar esta página, no podrás acceder a ella nuevamente.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

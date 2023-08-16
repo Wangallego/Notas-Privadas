@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Ver Historial - PrivNote{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title text-center">Historial de Notas</h1>
+                    <h3 class="text-center">Código: {{ codigo }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        {% for nota in notas %}
+                        <a href="http://localhost:5000{{ nota[0] }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            {{ nota[0] }}
+                            <span class="badge bg-primary rounded-pill">Nota</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
